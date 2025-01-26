@@ -77,6 +77,7 @@ Then, follow the same steps to build and test the bootable image.
 
 Creating a bootable image allows you to have a fully functional operating system environment within a container. This can be useful for various use cases, such as testing, development, and running legacy applications.
 
+
 ## Why using bootable images rather than traditional OS?
 
 Opting for bootable images over traditional OS installations offers several compelling advantages:
@@ -109,3 +110,10 @@ Bootable images can be more resource-efficient than traditional OS installations
 Bootable images allow you to create customized operating system environments tailored to specific use cases. This flexibility is useful for scenarios where traditional OS installations may not provide the necessary configuration or optimization options.
 
 In other words, bootable images offer enhanced portability, consistency, speed, automation, simplified management, isolation, version control, resource efficiency, and flexibility compared to traditional OS installations. These advantages make bootable images a powerful tool for modern IT infrastructure and application management.
+
+
+
+## References
+
+https://docs.fedoraproject.org/en-US/bootc/getting-started/
+
