@@ -14,7 +14,7 @@ RUN echo 'Pulling the registry.redhat.io/rhel9/rhel-bootc:latest image'
 FROM registry.redhat.io/rhel9/rhel-bootc:latest
 
 RUN echo 'Installing the required dependencies'
-RUN subscription-manager register --username MouradN81 --password 12345678
+RUN subscription-manager register --username <Username> --password <Password>
 RUN dnf -y install cloud-init && \
     ln -s ../cloud-init.target /usr/lib/systemd/system/default.target.wants && \
     dnf clean all > Containerfile
