@@ -1,4 +1,4 @@
-# OpenShift Apache Server Image Configuration and Deployment
+# OpenShift Apache Server Rootless Image Configuration and Deployment
 
 ## The Dockerfile content
 
