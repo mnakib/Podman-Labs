@@ -30,7 +30,7 @@ For deploying a containerized database in Kubernetes, it's generally better to u
 Below is are some examples of StatefulSet manifests for common databases in Kubernetes: MySQL, PostgreSQL, and MongoDB. These configurations ensure persistent storage, ordered scaling, and stable network identity.
 
 ### MySQL StatefulSet Example
-```
+```yaml
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -75,7 +75,7 @@ spec:
 
 
 ### PostgreSQL StatefulSet Example
-```
+```yaml
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
