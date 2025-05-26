@@ -40,8 +40,10 @@ Because this is a private image (unless you make it public), you will need to cr
 Create the secret
 
 ```
-# oc create secret docker-registry quay-creds --docker-username=<registry-username> \
---docker-password=<registry-password> --docker-server=quay.io
+# oc create secret docker-registry quay-creds \
+--docker-username=<registry-username> \
+--docker-password=<registry-password> \
+--docker-server=quay.io
 ```
 
 Link the secret to the service account
