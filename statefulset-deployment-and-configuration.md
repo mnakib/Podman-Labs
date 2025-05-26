@@ -185,6 +185,7 @@ One way is to create a deployment from an S2I image and the WordPress git repo.
 
 This command will create an image stream, a build config, a deployment, and a service.
 
+```sh
 ...
 --> Creating resources ...
     imagestream.image.openshift.io "wordpress" created
@@ -193,6 +194,7 @@ This command will create an image stream, a build config, a deployment, and a se
     service "wordpress" created
 --> Success
 ...
+```
 
 What is left to do is the creation of a route to access WordPress console from a browser.
 
