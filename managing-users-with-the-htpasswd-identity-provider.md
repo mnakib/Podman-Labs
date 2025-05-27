@@ -9,6 +9,11 @@ Below are the listed steps:
 - [Creating the HTPasswd Secret](https://github.com/mnakib/Podman-Labs/blob/main/managing-users-with-the-htpasswd-identity-provider.md#creating-the-htpasswd-secret).
 - [Configuring the HTPasswd Identity Provider](https://github.com/mnakib/Podman-Labs/blob/main/managing-users-with-the-htpasswd-identity-provider.md#configuring-the-htpasswd-identity-provider).
 
+> The `apache2-utils` package needs to be installed to be able to use the htpasswd utility
+> '''sh
+> sudo apt install apache2-utils
+> ```
+
 ### Creating an HTPasswd File
 
 Create the .htpasswd file and add two users: admin and developer
