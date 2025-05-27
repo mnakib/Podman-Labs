@@ -23,7 +23,7 @@ htpasswd -c -B -b .htpasswd localadmin redhat
 ```
 
 ```sh
-htpasswd -b .htpasswd developer developer
+htpasswd -b .htpasswd developer localdeveloper
 ```
 
 ```sh
@@ -31,7 +31,7 @@ cat .htpasswd
 ```
 ```sh
 localadmin:$2y$05$qQaFbpx4hbf4uZe.SMLSduTN8uN4DNJMJ4jE5zXDA57WrTRlpu2QS
-developer:$apr1$S0TxtLXl$QSRfBIufYP39pKNsIg/nD1
+localdeveloper:$apr1$S0TxtLXl$QSRfBIufYP39pKNsIg/nD1
 ```
 
 ### Creating the HTPasswd Secret
@@ -101,7 +101,7 @@ oc replace -f ./oauth.yaml
 > pod/oauth-openshift-6d68ffb9dc-6f8dr   1/1     Running   3          2m
 > ```
 
-Log in as the admin and as the developer user to verify the HTPasswd user configuratio
+Log in as the admin and as the **localadmin** user to verify the HTPasswd user configuration
 
 ```sh
 oc login -u localadmin -p redhat
@@ -114,3 +114,29 @@ oc get nodes
 ```sh
 oc get identity
 ```
+
+Log in to the cluster as the **localdeveloper** user to verify that the HTPasswd authentication is configured correctly
+
+```sh
+oc get nodes
+```
+```
+Error from server (Forbidden): nodes is forbidden: User "new_developer" cannot list resource "nodes" in API group "" at the cluster scope
+```
+
+Log in againas the **localadmin** user and list the current users and identities
+
+```sh
+oc get users
+```
+```
+NAME            UID                                   ...  IDENTITIES
+admin           6126c5a9-4d18-4cdf-95f7-b16c3d3e7f24  ...  ...
+localadmin       489c7402-d318-4805-b91d-44d786a92fc1  ...  myusers:localadmin
+localdeveloper   8dbae772-1dd4-4242-b2b4-955b005d9022  ...  myusers:localdeveloper
+```
+
+```sh
+oc get identity
+```
+
