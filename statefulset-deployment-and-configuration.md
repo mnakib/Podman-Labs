@@ -1,5 +1,7 @@
 # StatefulSet Configuration and Deployment
 
+## Motivations
+
 For deploying a containerized database in Kubernetes, it's generally better to use a StatefulSet rather than a Deployment for below reasons:
 
 1 - Stable Identity (pod name persistence)
@@ -26,6 +28,8 @@ For deploying a containerized database in Kubernetes, it's generally better to u
 - Each pod in a StatefulSet gets a stable network identity (db-0.db-service, db-1.db-service). This is essential for databases like MySQL, PostgreSQL, and Cassandra that need peer-to-peer communication.
 
 - In a Deployment, pods get random names, which can complicate database clustering.
+
+Consquently, StatefulSets ensure that pods are created and destroyed in an order, maintaining the integrity of your application’s state.
 
 Below is are some examples of StatefulSet manifests for common databases in Kubernetes: MySQL, PostgreSQL, and MongoDB. These configurations ensure persistent storage, ordered scaling, and stable network identity.
 
