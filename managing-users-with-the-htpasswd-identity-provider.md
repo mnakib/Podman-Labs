@@ -6,8 +6,8 @@ Managing user credentials with the HTPasswd Identity Provider requires creating 
 Below are the listed steps:
 
 - [Creating an HTPasswd File]
-- Creating the HTPasswd Secret.
-- Configuring the HTPasswd Identity Provider
+- [Creating the HTPasswd Secret].
+- [Configuring the HTPasswd Identity Provider]
 
 ### Creating an HTPasswd File
 
