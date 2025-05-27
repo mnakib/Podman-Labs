@@ -14,15 +14,15 @@ Below are the listed steps:
 Create the .htpasswd file and add two users: admin and developer
 
 ```sh
-$ htpasswd -c -B -b .htpasswd admin redhat
+htpasswd -c -B -b .htpasswd admin redhat
 ```
 
 ```sh
-$ htpasswd -b .htpasswd developer developer
+htpasswd -b .htpasswd developer developer
 ```
 
 ```sh
-$ cat .htpasswd
+cat .htpasswd
 ```
 ```sh
 admin:$2y$05$qQaFbpx4hbf4uZe.SMLSduTN8uN4DNJMJ4jE5zXDA57WrTRlpu2QS
@@ -34,18 +34,18 @@ developer:$apr1$S0TxtLXl$QSRfBIufYP39pKNsIg/nD1
 Log in to OpenShift and create a secret that contains the HTPasswd users file.
 
 ```sh
-$ oc login -u admin -p redhatocp https://api.ocp4.example.com:6443
+oc login -u admin -p redhatocp https://api.ocp4.example.com:6443
 ```
 
 ```sh
-$ oc create secret generic localusers \
+oc create secret generic localusers \
     --from-file htpasswd=.htpasswd -n openshift-config
 ```
 
 Assign the admin user the cluster-admin role
 
 ```sh
-$ oc adm policy add-cluster-role-to-user cluster-admin admin
+oc adm policy add-cluster-role-to-user cluster-admin admin
 ```
 
 ###  Configuring the HTPasswd Identity Provider
@@ -55,7 +55,7 @@ Update the HTPasswd identity provider for the cluster so that your users can aut
 Export the existing OAuth resource to a file named oauth.yaml
 
 ```sh
-$ oc get oauth cluster -o yaml > ./oauth.yaml
+oc get oauth cluster -o yaml > ./oauth.yaml
 ```
 
 Edit the `oauth.yaml` file and choose the names of the `identityProviders` and `fileData` structures. For this example, use the `httpdusers` and `localusers` values, respectively.
@@ -80,7 +80,7 @@ spec:
 Apply the custom resource.
 
 ```bash
-$ oc replace -f ./oauth.yaml
+oc replace -f ./oauth.yaml
 ```
 
 Authentication changes require redeploying pods in the openshift-authentication namespace.
@@ -88,19 +88,23 @@ Authentication changes require redeploying pods in the openshift-authentication 
 Use the `watch` command to examine the status of workloads in the openshift-authentication namespace.
 
 ```sh
-$ watch oc get all -n openshift-authentication
+watch oc get all -n openshift-authentication
+```
+```
+NAME                                   READY   STATUS    RESTARTS   AGE
+pod/oauth-openshift-6d68ffb9dc-6f8dr   1/1     Running   3          2m
 ```
 
 Log in as the new_admin and as the new_developer user to verify the HTPasswd user configuratio
 
 ```sh
-$ oc login -u new_admin -p redhat
+oc login -u new_admin -p redhat
 ```
 
 ```sh
-$ oc get nodes
+oc get nodes
 ```
 
 ```sh
-$ oc get identity
+oc get identity
 ```
