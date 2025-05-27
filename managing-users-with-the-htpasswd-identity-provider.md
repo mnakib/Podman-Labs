@@ -5,9 +5,9 @@ Managing user credentials with the HTPasswd Identity Provider requires creating 
 
 Below are the listed steps:
 
-- [Creating an HTPasswd File]
-- [Creating the HTPasswd Secret].
-- [Configuring the HTPasswd Identity Provider]
+- [Creating an HTPasswd File](https://github.com/mnakib/Podman-Labs/blob/main/managing-users-with-the-htpasswd-identity-provider.md#creating-an-htpasswd-file).
+- [Creating the HTPasswd Secret](https://github.com/mnakib/Podman-Labs/blob/main/managing-users-with-the-htpasswd-identity-provider.md#creating-the-htpasswd-secret).
+- [Configuring the HTPasswd Identity Provider](https://github.com/mnakib/Podman-Labs/blob/main/managing-users-with-the-htpasswd-identity-provider.md#configuring-the-htpasswd-identity-provider).
 
 ### Creating an HTPasswd File
 
