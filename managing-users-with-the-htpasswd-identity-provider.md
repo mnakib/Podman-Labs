@@ -3,6 +3,12 @@
 
 Managing user credentials with the HTPasswd Identity Provider requires creating a temporary htpasswd file, changing the file, and applying these changes to the secret.
 
+Below are the listed steps:
+
+- [Creating an HTPasswd File]
+- Creating the HTPasswd Secret.
+- Configuring the HTPasswd Identity Provider
+
 ### Creating an HTPasswd File
 
 Create the .htpasswd file and add two users: admin and developer
