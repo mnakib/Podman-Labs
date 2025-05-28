@@ -1,6 +1,8 @@
 
 # Per-Project Resource Constraints: Limit Ranges
 
+## Motivations
+
 Within a namespace, a Pod can consume as much CPU and memory as is allowed by the ResourceQuotas that apply to a namespace. As a cluster operator, or as a namespace-level administrator, you might be concerned about making sure that a single object cannot monopolize all available resources within a namespace.
 
 In fact, Kubernetes users might have further resource management needs within a namespace.
@@ -39,6 +41,8 @@ The quota prevents the deployment from creating pods:
 
 ```sh
 $ oc get event --sort-by .metadata.creationTimestamp
+```
+```
 LAST SEEN   TYPE      REASON              OBJECT                          MESSAGE
 ...output omitted...
 13s         Warning   FailedCreate        replicaset/example-74c57c8dff   Error creating: pods "example-74c57c8dff-rzl7w" is forbidden: failed quota: example: must specify limits.cpu for: httpd; limits.memory for: httpd; requests.cpu for: httpd; requests.memory for: httpd
