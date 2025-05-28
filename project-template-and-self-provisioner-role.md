@@ -118,6 +118,18 @@ metadata:
 
 Update the `projects.config.openshift.io/cluster` resource to use the new project template. Modify the spec section. By default, the name of the project template is `project-request`.
 
+```yaml
+apiVersion: config.openshift.io/v1
+kind: Project
+metadata:
+...output omitted...
+  name: cluster
+...output omitted...
+spec:
+  projectRequestTemplate:
+    name: project-request
+```
+
 
 
 ## Managing Self-provisioning Permissions
