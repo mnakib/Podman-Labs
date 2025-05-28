@@ -99,10 +99,14 @@ spec:
       cpu: "10"   
 ```
 
+```sh
+$ oc apply -f resource-limits.yaml
+```
+
 Limit ranges do not affect existing pods. If you delete the deployment and run the oc create command again, then the deployment creates a pod with the applied limit range.
 
 ```sh
-$ oc apply -f resource-limits.yaml
+$ oc new-app httpd
 ```
 
 ```sh
