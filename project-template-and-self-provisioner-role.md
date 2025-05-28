@@ -134,7 +134,7 @@ spec:
 
 ## Managing Self-provisioning Permissions
 
-Users with the self-provisioner cluster role can create projects. By default, the self-provisioner role is bound to all authenticated users.
+Users with the `self-provisioner` cluster role can create projects. By default, the `self-provisioner` role is bound to all **authenticated users**.
 
 Control the binding of the role to limit which users can request new projects.
 
