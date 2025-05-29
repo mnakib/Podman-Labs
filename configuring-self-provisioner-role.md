@@ -43,12 +43,12 @@ $ oc patch clusterrolebinding.rbac self-provisioners \
 clusterrolebinding.rbac.authorization.k8s.io/self-provisioners patched
 ```
 
-You can also use the oc edit command to modify any value of a resource. The command launches the vi editor to apply your modifications. For example, to change the subject of the role binding from the system:authenticated:oauth group to the provisioners group, execute the following command:
+You can also use the oc edit command to modify any value of a resource. The command launches the vi editor to apply your modifications. For example, to change the subject of the role binding from the `system:authenticated:oauth` group to the `provisioners` group, execute the following command:
 
 ```sh
 $ oc edit clusterrolebinding/self-provisioners
 ```
-```
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
@@ -62,3 +62,10 @@ subjects:
   kind: Group
   name: provisioners
 ```
+
+> You need to have the `provisioners` group created in OpenShift and has already a few users as members.
+> Follow the steps in (Managing users with the htpasswd identity provider)[https://github.com/mnakib/Podman-Labs/blob/main/managing-users-with-the-htpasswd-identity-provider.md] to configure the OpenShift cluster with local users from HTPasswd, then create a group named `provisioners` and add some users to it.
+> 
+> `$ oc adm groups new provisioners`
+> 
+> `$ oc adm groups add-users provisioners <user-name>`
