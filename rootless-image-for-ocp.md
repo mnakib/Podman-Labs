@@ -11,6 +11,8 @@ RUN sed -i 's/Listen 80/Listen 8080/g' /usr/local/apache2/conf/httpd.conf
 
 RUN chgrp -R 0 /usr/local/apache2/logs && chmod -R g=u /usr/local/apache2/logs
 
+COPY ./src/ /usr/local/apache2/htdocs/
+
 # USER root
 
 EXPOSE 8080
