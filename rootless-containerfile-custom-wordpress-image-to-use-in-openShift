@@ -1,0 +1,25 @@
+# Rootless Containerfile custom Wordpress image to use in OpenShift
+
+This is a Containerfile to create customized rootless WordPress image to be used in OpenShift. Two settings have been updated:
+
+- Provide the root group the same privileges as the user account
+- In the /etc/apache2/ports.conf Apache configuration file, change the listening port (Listen directive) from port 80 to port 8080.
+
+$ cat Containerfile
+
+```dockerfile
+FROM docker.io/wordpress:latest
+
+# Provide the GUID 0 access to the web home directory
+RUN chgrp -R 0 /var/www/html/ && chmod -R g=u /var/www/html/
+
+# Update Apache configuration
+RUN sed -i 's/Listen 80/Listen 8080/' /etc/apache2/ports.conf && \
+    sed -i 's/<VirtualHost \*:80>/<VirtualHost *:8080>/' /etc/apache2/sites-available/000-default.conf
+
+# Expose the new port
+EXPOSE 8080
+
+# Restart Apache
+CMD ["apache2-foreground"]
+```
