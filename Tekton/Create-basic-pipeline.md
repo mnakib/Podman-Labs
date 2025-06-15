@@ -1,3 +1,5 @@
+## What is Tekton?
+
 Tekton helps you define your CI/CD pipelines as Kubernetes resources. Let's walk through a basic example that demonstrates the core concepts: **Tasks** and **Pipelines**.
 
 For this example, you'll need:
